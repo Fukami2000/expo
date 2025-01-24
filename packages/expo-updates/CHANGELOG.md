@@ -6,6 +6,8 @@
 
 ### 🎉 New features
 
+- Added experimental `Updates.setUpdatesURLAndRequestHeadersOverride()` to allow update overrides. ([#34422](https://github.com/expo/expo/pull/34422) by [@kudo](https://github.com/kudo))
+
 ### 🐛 Bug fixes
 
 - Removed Apache Commons IO dependency and fixed crash issue on Android 7. ([#34638](https://github.com/expo/expo/pull/34638) by [@kudo](https://github.com/kudo))
