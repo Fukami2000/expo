@@ -14,6 +14,8 @@
 
 ### 💡 Others
 
+- Fixed build error on iOS Expo Go. ([#34485](https://github.com/expo/expo/pull/34485) by [@kudo](https://github.com/kudo))
+
 ## 0.26.15 — 2025-01-31
 
 ### 🐛 Bug fixes
