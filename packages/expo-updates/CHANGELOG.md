@@ -15,6 +15,7 @@
 ### 💡 Others
 
 - Fixed build error on iOS Expo Go. ([#34485](https://github.com/expo/expo/pull/34485) by [@kudo](https://github.com/kudo))
+- Fixed Android unit test errors in BuilDataTest. ([#34510](https://github.com/expo/expo/pull/34510) by [@kudo](https://github.com/kudo))
 
 ## 0.26.15 — 2025-01-31
 
