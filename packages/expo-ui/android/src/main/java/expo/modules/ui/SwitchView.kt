@@ -12,20 +12,20 @@ import expo.modules.kotlin.AppContext
 import expo.modules.kotlin.views.ComposeProps
 
 data class SwitchProps(
-  val checked: MutableState<Boolean> = mutableStateOf(false),
+  val value: MutableState<Boolean> = mutableStateOf(false),
   val variant: MutableState<String> = mutableStateOf("switch")
 ) : ComposeProps
 
 class SwitchView(context: Context, appContext: AppContext) : ExpoComposeView<SwitchProps>(context, appContext) {
   override val props = SwitchProps()
-  private val onCheckedChange by EventDispatcher()
+  private val onValueChange by EventDispatcher()
 
   init {
     setContent {
-      val (checked) = props.checked
+      val (checked) = props.value
       val (variant) = props.variant
       val onCheckedChange = { checked: Boolean ->
-        onCheckedChange(mapOf("checked" to checked))
+        onValueChange(mapOf("value" to checked))
       }
 
       @Composable

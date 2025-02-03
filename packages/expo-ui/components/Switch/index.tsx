@@ -5,7 +5,7 @@ export type SwitchProps = {
   /**
    * Indicates whether the switch is checked.
    */
-  checked: boolean;
+  value: boolean;
   /**
    * Label for the switch.
    * @platform android
@@ -20,18 +20,29 @@ export type SwitchProps = {
   /**
    * Callback function that is called when the checked state changes.
    */
-  onCheckedChange: (event: { nativeEvent: { checked: boolean } }) => void;
+  onValueChange: (value: boolean) => void;
   /**
    * Optional style for the switch component.
    */
   style?: StyleProp<ViewStyle>;
 };
 
-const SwitchNativeView: React.ComponentType<SwitchProps> = requireNativeView(
+type NativeSwitchProps = Omit<SwitchProps, 'onValueChange'> & {
+  onValueChange: (event: { nativeEvent: { value: boolean } }) => void;
+};
+
+const SwitchNativeView: React.ComponentType<NativeSwitchProps> = requireNativeView(
   'ExpoUI',
   'SwitchView'
 );
 
 export function Switch(props: SwitchProps) {
-  return <SwitchNativeView {...props} />;
+  return (
+    <SwitchNativeView
+      {...props}
+      onValueChange={({ nativeEvent: { value } }) => {
+        props?.onValueChange?.(value);
+      }}
+    />
+  );
 }

@@ -4,10 +4,10 @@ import SwiftUI
 import ExpoModulesCore
 
 class SwitchProps: ExpoSwiftUI.ViewProps {
-  @Field var checked: Bool
+  @Field var value: Bool
   @Field var variant: String?
   @Field var label: String?
-  var onCheckedChange = EventDispatcher()
+  var onValueChange = EventDispatcher()
 }
 
 struct SwitchView: ExpoSwiftUI.View {
@@ -19,15 +19,15 @@ struct SwitchView: ExpoSwiftUI.View {
     ExpoSwiftUI.AutoSizingStack(shadowNodeProxy: shadowNodeProxy, axis: .both) {
       Toggle(isOn: $checked, label: { props.label != nil ? Text(props.label ?? "") : nil })
       .onChange(of: checked, perform: { newValue in
-        if props.checked == newValue {
+        if props.value == newValue {
           return
         }
-        props.onCheckedChange([
-          "checked": newValue
+        props.onValueChange([
+          "value": newValue
         ])
       })
       .onReceive(props.objectWillChange, perform: {
-        checked = props.checked
+        checked = props.value
       })
       #if !os(tvOS)
       .if(props.variant == "button") {
