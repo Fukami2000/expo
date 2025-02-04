@@ -177,21 +177,6 @@ build:
 
 Build jobs can be customized so that you can execute custom commands during the build process. See [Custom builds](/custom-builds/get-started/) for more information.
 
-#### `submit`
-
-Submits an Android or iOS build to the app store using [EAS Submit](/submit/introduction/).
-
-```yaml
-submit:
-  # @info #
-  type: submit
-  # @end #
-  environment: production | preview | development # optional
-  params:
-    build_id: string # required
-    profile: string # optional, default: production
-```
-
 #### `deploy`
 
 Deploys your application using [EAS Hosting](/eas/hosting/introduction/).
@@ -205,23 +190,6 @@ deploy:
   params:
     alias: string # optional
     prod: boolean # optional
-```
-
-#### `update`
-
-Publishes an update using [EAS Update](/eas-update/introduction/).
-
-```yaml
-update:
-  # @info #
-  type: update
-  # @end #
-  environment: production | preview | development # optional
-  params:
-    message: string # optional
-    platform: string # optional - android, ios, or all
-    branch: string # optional
-    channel: string # optional - cannot be used with branch
 ```
 
 #### `get-build`
@@ -246,6 +214,38 @@ get-build:
     sdk_version: string # optional
     runtime_version: string # optional
     simulator: boolean # optional
+```
+
+#### `submit`
+
+Submits an Android or iOS build to the app store using [EAS Submit](/submit/introduction/).
+
+```yaml
+submit:
+  # @info #
+  type: submit
+  # @end #
+  environment: production | preview | development # optional
+  params:
+    build_id: string # required
+    profile: string # optional, default: production
+```
+
+#### `update`
+
+Publishes an update using [EAS Update](/eas-update/introduction/).
+
+```yaml
+update:
+  # @info #
+  type: update
+  # @end #
+  environment: production | preview | development # optional
+  params:
+    message: string # optional
+    platform: string # optional - android, ios, or all
+    branch: string # optional
+    channel: string # optional - cannot be used with branch
 ```
 
 ## Custom jobs
